@@ -10,15 +10,19 @@ import UIKit
 
 func showPopup(message: String, code: Int, sender: UIViewController) {
     
-    var errorTitle = ""
+    var popupTitle = ""
     
     if code == 0 {
-        errorTitle = NSLocalizedString("Error", comment: "Error title")
+        popupTitle = NSLocalizedString("Error", comment: "Error title")
+    } else if code == 999 {
+        popupTitle = NSLocalizedString("Info", comment: "Info title")
     } else {
-        errorTitle = String(code)
+        popupTitle = String(code)
     }
     
-    let alertController = UIAlertController(title: errorTitle, message:
+    
+    
+    let alertController = UIAlertController(title: popupTitle, message:
         message, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK Button"), style: UIAlertActionStyle.default,handler: nil))
     
