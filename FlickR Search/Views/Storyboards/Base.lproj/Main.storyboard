@@ -235,11 +235,11 @@
                             <constraint firstItem="PTz-bJ-vld" firstAttribute="centerX" secondItem="fiM-Eq-3FW" secondAttribute="centerX" id="kyC-5R-jZi"/>
                             <constraint firstItem="PTz-bJ-vld" firstAttribute="centerY" secondItem="fiM-Eq-3FW" secondAttribute="centerY" id="mmT-PQ-jw9"/>
                             <constraint firstItem="Kdb-qW-una" firstAttribute="top" secondItem="fiM-Eq-3FW" secondAttribute="top" id="nfI-iS-wPX"/>
-                            <constraint firstItem="upo-jg-dAB" firstAttribute="leading" secondItem="Wkn-QP-Wzx" secondAttribute="leading" id="oeb-oj-I3G"/>
+                            <constraint firstItem="upo-jg-dAB" firstAttribute="leading" secondItem="fiM-Eq-3FW" secondAttribute="leading" id="oeb-oj-I3G"/>
                             <constraint firstItem="K9l-K1-YB0" firstAttribute="bottom" secondItem="Wkn-QP-Wzx" secondAttribute="bottom" id="tHX-gL-cFA"/>
                             <constraint firstItem="XVc-9g-J74" firstAttribute="centerX" secondItem="fiM-Eq-3FW" secondAttribute="centerX" id="uwd-om-sNU"/>
                             <constraint firstItem="PTz-bJ-vld" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wkn-QP-Wzx" secondAttribute="leading" constant="15" id="x9v-iN-X25"/>
-                            <constraint firstItem="upo-jg-dAB" firstAttribute="trailing" secondItem="Wkn-QP-Wzx" secondAttribute="trailing" id="yZ4-Ec-giC"/>
+                            <constraint firstItem="upo-jg-dAB" firstAttribute="trailing" secondItem="fiM-Eq-3FW" secondAttribute="trailing" id="yZ4-Ec-giC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wkn-QP-Wzx"/>
                     </view>
