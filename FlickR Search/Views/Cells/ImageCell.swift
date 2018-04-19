@@ -15,9 +15,9 @@ class ImageCell: UICollectionViewCell {
     @IBOutlet weak var titleLbl: UILabel!
     
     
-    func setCell(photo: Photos) {
+    func setCell(photo: Photo) {
         
-        DataManager.downloadImage(url: photo.urlToPhoto as URL) { (image) in
+        DataManager.downloadImage(url: photo.urlToPhotoMedium as URL) { (image) in
             self.imageView.image = image
         }
         titleLbl.text = photo.title

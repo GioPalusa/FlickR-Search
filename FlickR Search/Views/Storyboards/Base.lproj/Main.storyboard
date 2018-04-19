@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="child" translatesAutoresizingMaskIntoConstraints="NO" id="IAn-Xo-ICC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="child" translatesAutoresizingMaskIntoConstraints="NO" id="IAn-Xo-ICC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mAd-eX-TaL">
@@ -188,14 +188,8 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PTz-bJ-vld">
-                                <rect key="frame" x="15" y="281" width="345" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="A3V-74-o4F"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9l-K1-YB0">
-                                <rect key="frame" x="119" y="740" width="137" height="38"/>
+                                <rect key="frame" x="119" y="724" width="137" height="54"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="contentEdgeInsets" minX="25" minY="10" maxX="25" maxY="10"/>
                                 <state key="normal" title="SAVE IMAGE">
@@ -207,21 +201,43 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching high quality image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVc-9g-J74">
+                                <rect key="frame" x="82" y="448.66666666666669" width="211" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PTz-bJ-vld">
+                                <rect key="frame" x="15" y="138" width="345" height="536"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sw8-pR-Tga">
+                                <rect key="frame" x="159.66666666666666" y="378.66666666666669" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="8Gd-Mi-Erx"/>
+                                    <constraint firstAttribute="width" constant="55" id="LnA-sj-mBF"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Kdb-qW-una" secondAttribute="bottom" id="2no-fm-W46"/>
                             <constraint firstItem="K9l-K1-YB0" firstAttribute="centerX" secondItem="fiM-Eq-3FW" secondAttribute="centerX" id="59e-hG-jIt"/>
+                            <constraint firstItem="K9l-K1-YB0" firstAttribute="top" secondItem="PTz-bJ-vld" secondAttribute="bottom" constant="50" id="5IH-Gk-ymX"/>
+                            <constraint firstItem="PTz-bJ-vld" firstAttribute="top" secondItem="Wkn-QP-Wzx" secondAttribute="top" constant="50" id="6A1-hL-j1I"/>
                             <constraint firstAttribute="bottom" secondItem="upo-jg-dAB" secondAttribute="bottom" id="Bcc-oQ-ZhF"/>
+                            <constraint firstItem="sw8-pR-Tga" firstAttribute="centerY" secondItem="fiM-Eq-3FW" secondAttribute="centerY" id="DDe-6b-cTH"/>
                             <constraint firstItem="Kdb-qW-una" firstAttribute="trailing" secondItem="Wkn-QP-Wzx" secondAttribute="trailing" id="GDR-Cc-944"/>
+                            <constraint firstItem="XVc-9g-J74" firstAttribute="top" secondItem="sw8-pR-Tga" secondAttribute="bottom" constant="15" id="MjD-tS-1qv"/>
                             <constraint firstItem="Kdb-qW-una" firstAttribute="leading" secondItem="Wkn-QP-Wzx" secondAttribute="leading" id="OJq-5k-v65"/>
                             <constraint firstItem="upo-jg-dAB" firstAttribute="top" secondItem="fiM-Eq-3FW" secondAttribute="top" id="XZf-eS-npV"/>
                             <constraint firstItem="Wkn-QP-Wzx" firstAttribute="trailing" secondItem="PTz-bJ-vld" secondAttribute="trailing" constant="15" id="cSn-HZ-ehu"/>
+                            <constraint firstItem="sw8-pR-Tga" firstAttribute="centerX" secondItem="fiM-Eq-3FW" secondAttribute="centerX" id="elW-EM-e1N"/>
                             <constraint firstItem="PTz-bJ-vld" firstAttribute="centerX" secondItem="fiM-Eq-3FW" secondAttribute="centerX" id="kyC-5R-jZi"/>
                             <constraint firstItem="PTz-bJ-vld" firstAttribute="centerY" secondItem="fiM-Eq-3FW" secondAttribute="centerY" id="mmT-PQ-jw9"/>
                             <constraint firstItem="Kdb-qW-una" firstAttribute="top" secondItem="fiM-Eq-3FW" secondAttribute="top" id="nfI-iS-wPX"/>
                             <constraint firstItem="upo-jg-dAB" firstAttribute="leading" secondItem="Wkn-QP-Wzx" secondAttribute="leading" id="oeb-oj-I3G"/>
                             <constraint firstItem="K9l-K1-YB0" firstAttribute="bottom" secondItem="Wkn-QP-Wzx" secondAttribute="bottom" id="tHX-gL-cFA"/>
+                            <constraint firstItem="XVc-9g-J74" firstAttribute="centerX" secondItem="fiM-Eq-3FW" secondAttribute="centerX" id="uwd-om-sNU"/>
                             <constraint firstItem="PTz-bJ-vld" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wkn-QP-Wzx" secondAttribute="leading" constant="15" id="x9v-iN-X25"/>
                             <constraint firstItem="upo-jg-dAB" firstAttribute="trailing" secondItem="Wkn-QP-Wzx" secondAttribute="trailing" id="yZ4-Ec-giC"/>
                         </constraints>
@@ -230,6 +246,8 @@
                     <connections>
                         <outlet property="blurredPhoto" destination="Kdb-qW-una" id="eIg-8n-dCa"/>
                         <outlet property="clearPhoto" destination="PTz-bJ-vld" id="BLg-Vz-D7y"/>
+                        <outlet property="infoLbl" destination="XVc-9g-J74" id="div-ym-YZk"/>
+                        <outlet property="spinner" destination="sw8-pR-Tga" id="1rf-kt-wwt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSB-TJ-KCc" userLabel="First Responder" sceneMemberID="firstResponder"/>

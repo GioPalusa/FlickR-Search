@@ -73,7 +73,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchResult"{
             let vc = segue.destination as! SearchResultVC
-            guard let photos = sender as? [Photos] else { return }
+            guard let photos = sender as? [Photo] else { return }
             vc.photos = photos
         }
     }

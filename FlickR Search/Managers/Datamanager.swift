@@ -16,7 +16,7 @@ class DataManager {
     }
     
     
-    class func getPhotosFromFlickr(keywords: String, completion: @escaping (_ photos: [Photos]?, _ error: NSError?) -> ()) {
+    class func getPhotosFromFlickr(keywords: String, completion: @escaping (_ photos: [Photo]?, _ error: NSError?) -> ()) {
         let escapedSearchText: String = keywords.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         let urlString: String = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Keys().key)&tags=\(escapedSearchText)&per_page=100&format=json&nojsoncallback=1"
         let url: NSURL = NSURL(string: urlString)!
@@ -42,7 +42,7 @@ class DataManager {
                 guard let photosContainer = resultsDictionary!["photos"] as? NSDictionary else { return }
                 guard let photosArray = photosContainer["photo"] as? [NSDictionary] else { return }
                 
-                let photosFromFlickr: [Photos] = photosArray.map { photoDictionary in
+                let photosFromFlickr: [Photo] = photosArray.map { photoDictionary in
                     
                     let photoId = photoDictionary["id"] as? String ?? ""
                     let farm = photoDictionary["farm"] as? Int ?? 0
@@ -52,7 +52,7 @@ class DataManager {
                     let owner = photoDictionary["owner"] as? String ?? ""
                     
                     
-                    let flickrPhoto = Photos(title: title, secret: secret, photoId: photoId, farm: farm, server: server, owner: owner)
+                    let flickrPhoto = Photo(title: title, secret: secret, photoId: photoId, farm: farm, server: server, owner: owner)
                     return flickrPhoto
                 }
                 

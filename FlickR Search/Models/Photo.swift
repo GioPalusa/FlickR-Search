@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Photos {
+struct Photo {
     
     let title: String
     let secret: String
@@ -17,8 +17,12 @@ struct Photos {
     let server: String
     let owner: String
     
-    var urlToPhoto: NSURL {
+    var urlToPhotoMedium: NSURL {
         return NSURL(string: "https://farm\(farm).staticflickr.com/\(server)/\(photoId)_\(secret)_m.jpg")!
+    }
+    
+    var urlToPhotoHigh: NSURL {
+        return NSURL(string: "https://farm\(farm).staticflickr.com/\(server)/\(photoId)_\(secret)_h.jpg")!
     }
     
 }

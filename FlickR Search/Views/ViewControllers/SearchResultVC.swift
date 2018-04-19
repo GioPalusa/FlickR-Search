@@ -12,7 +12,7 @@ import UIKit
 
 class SearchResultVC: UICollectionViewController {
     
-    var photos: [Photos] = []
+    var photos: [Photo] = []
     private let reuseIdentifier = "ImageCell"
     var selectedIndex = 0
     
