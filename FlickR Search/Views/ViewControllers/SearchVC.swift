@@ -30,10 +30,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         searchfield.text = ""
     }
     
-    @IBAction func searchBtnPressed(_ sender: Any) {
+    @IBAction func searchBtnPressed(_ sender: UIButton) {
         
+        sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(6.0),
+                       options: UIViewAnimationOptions.allowUserInteraction,
+                       animations: {
+                        sender.transform = CGAffineTransform.identity
+        },
+                       completion: { Void in()  }
+        )
+        
+        let network = isConnectedToNetwork()
         if searchfield.text == "" {
-            showPopup(message: "You need to enter a text to search for", code: 0, sender: self)
+            showPopup(message: NSLocalizedString("You need to enter a text to search for", comment: "You need to enter a text to search for"), code: 0, sender: self)
+        } else if network == false {
+            showPopup(message: NSLocalizedString("You don't seem to be online. Try again when you have network", comment: "You don't seem to be online. Try again when you have network"), code: 0, sender: self)
         } else {
             searchBtn.isHidden = true
             spinner.isHidden = false
@@ -80,7 +96,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Functions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchBtnPressed(self)
+        searchBtnPressed(searchBtn)
         textField.resignFirstResponder()
         return true
     }

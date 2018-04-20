@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SystemConfiguration
 
 func showPopup(message: String, code: Int, sender: UIViewController) {
     
@@ -20,8 +21,6 @@ func showPopup(message: String, code: Int, sender: UIViewController) {
         popupTitle = String(code)
     }
     
-    
-    
     let alertController = UIAlertController(title: popupTitle, message:
         message, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK Button"), style: UIAlertActionStyle.default,handler: nil))
@@ -31,4 +30,28 @@ func showPopup(message: String, code: Int, sender: UIViewController) {
         generator.notificationOccurred(.error)
         sender.present(alertController, animated: true, completion: nil)
     }
+}
+
+public func isConnectedToNetwork() -> Bool {
+    var zeroAddress = sockaddr_in()
+    zeroAddress.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
+    zeroAddress.sin_family = sa_family_t(AF_INET)
+    
+    guard let defaultRouteReachability = withUnsafePointer(to: &zeroAddress, {
+        $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+            SCNetworkReachabilityCreateWithAddress(nil, $0)
+        }
+    }) else {
+        return false
+    }
+    
+    var flags: SCNetworkReachabilityFlags = []
+    if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
+        return false
+    }
+    
+    let isReachable = flags.contains(.reachable)
+    let needsConnection = flags.contains(.connectionRequired)
+    
+    return (isReachable && !needsConnection)
 }
